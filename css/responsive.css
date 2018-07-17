@@ -21,3 +21,16 @@
 		margin: 0px 30px;
 	}
 }
+
+@media screen and (min-width: 503px) {
+
+	#restaurants-list li {
+	  max-width: 40%;
+	}
+
+	#restaurant-address {
+		font-size: 12pt;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+}
