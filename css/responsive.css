@@ -34,3 +34,16 @@
 		padding-right: 10px;
 	}
 }
+
+@media screen and (min-width: 900px) {
+
+    #restaurants-list li {
+	  max-width: 25%;
+	}
+    
+    .container, .inside {
+        margin-left: auto;
+		margin-right: auto;
+        width: 900px;		
+	}		
+}
