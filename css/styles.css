@@ -342,3 +342,9 @@ nav h1 a {
 #restaurant-hours td {
   color: #666;
 }
+
+/* ====================== Aria Details====================== */
+
+.aria-label {
+  display: none;
+}
