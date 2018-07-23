@@ -235,7 +235,7 @@ nav h1 a {
   overflow-x: hidden !important;
 }
 .inside #map-container { 
-  height: 200px;
+  height: 400px;
   width: 100%;
   border-top:1px solid #d9d9d9;
   border-bottom:1px solid #d9d9d9;
