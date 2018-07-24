@@ -2,26 +2,20 @@
 /* CSS Document */
 
 @media only screen and (min-device-width: 320px) and (max-device-width: 502px) {
-
-    #restaurant-container{
-		flex-flow: column;
-    }    
     
     #restaurant-img {
-		height: 200px;
-		width: auto;		
+		width: 80%;
     }        
     
 	.restaurant-info {
-		width:100%;
-    }   
-
-	.restaurant-pretty {
 		width:100%;		
-    }	
+  }	
     
-    .filter-selects {	
+  .filter-selects {	
 		margin: 0px 30px;
+	}
+	td {
+		font-size: 12pt;
 	}
 }
 
