@@ -53,9 +53,11 @@
 	}
 }	
 
-
+/* ====================== Desktop/Laptop Media ====================== */
 @media screen and (min-width: 1050px) {
-	
+	.inside #map-container {
+		height: 300px;
+	}
     #restaurants-list li {
 	  max-width: 25%;
 	}

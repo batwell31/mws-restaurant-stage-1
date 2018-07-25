@@ -183,11 +183,14 @@ nav h1 a {
   margin: 0;
   max-width: 100%;
 }
-.restaurant-img {
-  width: 80%;
+#restaurant-img {
+  margin: auto;
+  width: 100%;
+  height: auto; 
+  align-self: center;
 }
 .restaurant-info {
-  width: 100%;
+  width:100%;
 }
 #restaurants-list li h1 {
   color: #f18200;
