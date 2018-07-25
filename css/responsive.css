@@ -1,33 +1,61 @@
 @charset "utf-8";
 /* CSS Document */
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 502px) {
-    
-    #restaurant-img {
-		width: 80%;
+/* ====================== Tablet Media ====================== */
+@media screen and (min-width: 503px) and (max-width: 999px) {
+	.inside #map-container {
+		height: 400px;
 	}
-    
-	.restaurant-info {
-		width:100%;		
-  }	
-    
-  .filter-selects {	
-		margin: 0px 30px;
-	}
-	td {
-		font-size: 12pt;
-	}
-}
 
-@media screen and (min-width: 503px) and (max-width: 899px) {
+	#restaurant-address {
+		font-size: 18pt;
+	}
 
 	#restaurants-list li {
 	  max-width: 40%;
 	}
+
+	#restaurant-hours td {
+		font-size: 17pt;
+	}
+
+	.review-comments {
+		font-size: 20pt;
+	}
 }
 
-@media screen and (min-width: 900px) {
+/* ====================== Tablet Media Portrait ====================== */
+@media screen and (min-width: 900px) and (max-width: 1100px) and (max-height: 1000px) {
+	.inside #map-container {
+		height: 400px;
+	}
 
+	#restaurant-address {
+		font-size: 18pt;
+	}
+
+	#restaurants-list li {
+	  max-width: 40%;
+	}
+
+	#restaurant-hours td {
+		font-size: 15pt;
+	}
+
+	.review-comments {
+		font-size: 18pt;
+	}
+	#restaurant-img {
+    	width: 60%;
+	}
+	.review-date {
+		font-size: 18pt;
+	}
+}	
+
+
+@media screen and (min-width: 1050px) {
+	
     #restaurants-list li {
 	  max-width: 25%;
 	}
