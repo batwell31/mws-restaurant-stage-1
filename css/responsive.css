@@ -5,7 +5,11 @@
     
     #restaurant-img {
 		width: 80%;
-    }        
+	}
+	
+	#restaurant-address {
+		font-size: 12pt;
+	}
     
 	.restaurant-info {
 		width:100%;		
@@ -19,14 +23,14 @@
 	}
 }
 
-@media screen and (min-width: 503px) {
+@media screen and (min-width: 503px) and (max-width: 899px) {
 
 	#restaurants-list li {
 	  max-width: 40%;
 	}
 
 	#restaurant-address {
-		font-size: 12pt;
+		font-size: 14pt;
 		padding-left: 10px;
 		padding-right: 10px;
 	}
@@ -36,6 +40,10 @@
 
     #restaurants-list li {
 	  max-width: 25%;
+	}
+
+	#restaurant-address {
+		font-size: 16pt;
 	}
     
     .container, .inside {

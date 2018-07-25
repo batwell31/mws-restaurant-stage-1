@@ -274,7 +274,7 @@ nav h1 a {
   align-self: center;
 }
 #restaurant-address {
-  font-size: 12pt;
+  font-size: 15pt;
   margin-left: auto;
   margin-right: auto;
   text-align:center;
@@ -335,7 +335,7 @@ nav h1 a {
 }
 #reviews-list li {
   background-color: #fff;
-  border: 2px solid #f3f3f3;
+  border: 2px solid #000;
   display: block;
   list-style-type: none;
   margin: auto;
@@ -346,6 +346,11 @@ nav h1 a {
 }
 #reviews-list li p {
   margin: 0 0 10px;
+}
+
+.review-list {
+  border-style: solid;
+  border-color: #000;
 }
 #restaurant-hours td {
   color: black;

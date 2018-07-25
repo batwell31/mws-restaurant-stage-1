@@ -160,6 +160,7 @@ createReviewHTML = (review) => {
   const name = document.createElement('p');
   name.innerHTML = review.name;
   name.className = 'review-name';
+  li.className = 'review-list';
   li.appendChild(name);
 
   const date = document.createElement('span');
