@@ -55,6 +55,9 @@
 
 /* ====================== Desktop/Laptop Media ====================== */
 @media screen and (min-width: 1050px) {
+	ul, li {
+		font-size: 16pt;
+	}
 	.inside #map-container {
 		height: 300px;
 	}
@@ -66,5 +69,35 @@
         margin-left: auto;
 		margin-right: auto;
         width: 900px;		
-	}		
+	}
+	#restaurant-img {
+    	width: 70%;
+	}
+	#restaurant-hours td {
+		font-size: 16pt;
+	}
+	#restaurant-address {
+		font-size: 20pt;
+		font-weight: bold;
+		background: #fff;
+		padding: 3px;
+	}
+	#restaurant-cuisine, #restaurant-name,  #reviews-container h2 {
+		font-size: 25pt;
+	}
+	#reviews-container {
+		width: 75%
+	}
+	.review-comments {
+		font-size: 17pt;
+	}
+	.review-date {
+		font-size: 18pt;
+	}
+	.review-name {
+		font-size: 23pt;
+	}
+	#footer {
+		font-size: 12pt;
+	}
 }
