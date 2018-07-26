@@ -80,28 +80,39 @@ fetchRestaurantFromURL = (callback) => {
  * Create restaurant HTML and add it to the webpage
  */
 fillRestaurantHTML = (restaurant = self.restaurant) => {
+  
+  // Creates the 'restaurant name' HTML
   const name = document.getElementById('restaurant-name');
   name.innerHTML = restaurant.name;
   name.setAttribute('tabindex', 0);
 
+  // Creates the 'restaurant address' HTML
   const address = document.getElementById('restaurant-address');
   address.innerHTML = restaurant.address;
   address.setAttribute('tabindex', 0);
 
+  // Creates the 'restaurant-img' HTML
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img';
-  var image_url_base = DBHelper.imageUrlForRestaurant(restaurant);
-  var image_length = image_url_base.length;
-  image_url_base = image_url_base.substring(0, image_length - 4);
+  var image_url = DBHelper.imageUrlForRestaurant(restaurant);
+  var image_length = image_url.length;
+ 
+  // This takes off '.jpg' from the img's URL
+  image_url = image_url.substring(0, image_length - 4);
+  
+  // 3 variables for img's for 1x, 2x, and 3x displays
   const image_url_1x = image_url_base + "_320.jpg";
   const image_url_2x = image_url_base + "_503.jpg";
   const image_url_3x = image_url_base + "_900.jpg";
+  
+  // Sets the default img src to the smallest img variable
   image.src = image_url_1x;
   image.srcset = `${image_url_1x} 320w, ${image_url_2x} 503w, ${image_url_3x} 900w`;
   image.sizes = `(max-width: 320px) 320px, (max-width: 503px) 503px, 900px`;
   image.alt = `A picture of ${restaurant.name}, a ${restaurant.cuisine_type} restaurant located in ${restaurant.neighborhood}.`;
   image.setAttribute('tabindex', 0);
 
+  // Creates the HTML for the 'restaurant-cuisine' section
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
   cuisine.setAttribute('tabindex', 0);
