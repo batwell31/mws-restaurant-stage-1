@@ -86,7 +86,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   name.innerHTML = restaurant.name;
   name.setAttribute('tabindex', 0);
 
-  // Creates the 'restaurant address' HTML
+  // Creates the 'restaurant address' HTML.
   const address = document.getElementById('restaurant-address');
   address.innerHTML = restaurant.address;
   address.setAttribute('tabindex', 0);
