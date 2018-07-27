@@ -179,20 +179,24 @@ createRestaurantHTML = (restaurant) => {
   image.alt = `A picture of ${restaurant.name}, a ${restaurant.cuisine_type} restaurant located in ${restaurant.neighborhood}.`;
   li.append(image);
 
+  // Creates the 'Name' Section
   const name = document.createElement('h1');
   name.innerHTML = restaurant.name;
   li.append(name);
 
+  // Creates the 'Neighborhood' Section
   const neighborhood = document.createElement('p');
   neighborhood.className = 'restaurant-neighborhood';
   neighborhood.innerHTML = restaurant.neighborhood;
   li.append(neighborhood);
 
+  // Creates the 'Address' Section
   const address = document.createElement('p');
   address.className = 'restaurant-address';
   address.innerHTML = restaurant.address;
   li.append(address);
 
+  // Creates the 'Button' Section
   const more = document.createElement('button');
   var label_attribute = document.createAttribute("aria-labelledby");
   var restaurantName = restaurant.name;  
