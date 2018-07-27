@@ -1,5 +1,5 @@
 let restaurant;
-let newMap;
+var newMap;
 
 /**
  * Initialize map as soon as the page is loaded.
@@ -33,8 +33,8 @@ initMap = () => {
       DBHelper.mapMarkerForRestaurant(self.restaurant, self.newMap);
     }
   });
-}
-
+}      
+ 
 /* window.initMap = () => {
   fetchRestaurantFromURL((error, restaurant) => {
     if (error) { // Got an error!
