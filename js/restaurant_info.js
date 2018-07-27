@@ -99,9 +99,9 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   image_url = image_url.substring(0, image_length - 4);
 
   // 3 variables for img's for 1x, 2x, and 3x displays
-  const image_url_1x = image_url_base + "_320.jpg";
-  const image_url_2x = image_url_base + "_503.jpg";
-  const image_url_3x = image_url_base + "_900.jpg";
+  const image_url_1x = image_url + "_320.jpg";
+  const image_url_2x = image_url + "_503.jpg";
+  const image_url_3x = image_url + "_900.jpg";
 
   // Sets the default img src to the smallest img variable
   image.src = image_url_1x;
