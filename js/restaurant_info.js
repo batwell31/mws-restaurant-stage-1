@@ -112,6 +112,8 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   // Creates the HTML for the 'restaurant-cuisine' section
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
+  const aria_cuisine_label = document.getElementById('cuisine_label');
+  aria_cuisine_label.innerHTML = "Cuisine: " + restaurant.cuisine_type; 
 
   // fill operating hours
   if (restaurant.operating_hours) {
@@ -129,15 +131,35 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
   for (let key in operatingHours) {
     const row = document.createElement('tr');
 
+    // Creates attribute for 'tabindex'
+    const label_tabindex = document.createAttribute("tabindex");
+    label_tabindex.value = 0;
+    // Set the attirubte to the row
+    row.setAttributeNode(label_tabindex);
+    
+    // Creates attribute for 'aria-labelledby'
+    const label_attribute = document.createAttribute("aria-labelledby");
+    label_attribute.value = key + "_label";
+    // Set the attribute to the row
+    row.setAttributeNode(label_attribute);
+
+    // Creates 'day' section
     const day = document.createElement('td');
     day.innerHTML = key;
     row.appendChild(day);
 
+    // Creates 'hours' section
     const time = document.createElement('td');
     time.innerHTML = operatingHours[key];
     row.appendChild(time);
 
     hours.appendChild(row);
+
+    // Creates a 'label' element that speaks the day + hours
+    const aria_hours_label = document.createElement('label');
+    aria_hours_label.id = key + "_label";
+    aria_hours_label.className = "aria-label";
+    aria_hours_label.innerHTML = key + operatingHours[key];
   }
 }
 
