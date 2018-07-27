@@ -1,7 +1,7 @@
 let restaurants,
   neighborhoods,
   cuisines
-let newMap
+var newMap
 let markers = []
 
 /**
@@ -207,7 +207,7 @@ createRestaurantHTML = (restaurant) => {
   more.innerHTML = 'View Details';
 
   const aria_label = document.createElement('label');
-  aria_label.id = restaurant_name + "_label";
+  aria_label.id = restaurantName + "_label";
   aria_label.className = "aria-label";
   aria_label.innerHTML = "Link: Restaurant " + restaurant.name + " Details. Neighborhood: " + restaurant.neighborhood + " Address: " + restaurant.address;
 
