@@ -5,8 +5,11 @@
 @media screen and (min-width: 503px) and (max-width: 999px) {
 	.inside #map-container {
 		height: 400px;
+		padding-bottom: 10px;
 	}
-
+	#breadcrumb {
+		width: calc(75% - 120px);
+	}
 	#restaurant-address {
 		font-size: 18pt;
 	}
@@ -28,8 +31,11 @@
 @media screen and (min-width: 900px) and (max-width: 1100px) and (max-height: 1000px) {
 	.inside #map-container {
 		height: 400px;
+		padding-bottom: 10px;
 	}
-
+	#breadcrumb {
+		width: calc(75% - 80px);
+	}
 	#restaurant-address {
 		font-size: 18pt;
 	}
@@ -60,6 +66,10 @@
 	}
 	.inside #map-container {
 		height: 300px;
+		padding-bottom: 10px;
+	}
+	#breadcrumb {
+		width: calc(75% - 80px);
 	}
     #restaurants-list li {
 	  max-width: 25%;
