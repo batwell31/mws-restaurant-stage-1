@@ -84,12 +84,10 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   // Creates the 'restaurant name' HTML
   const name = document.getElementById('restaurant-name');
   name.innerHTML = restaurant.name;
-  name.setAttribute('tabindex', 0);
 
   // Creates the 'restaurant address' HTML.
   const address = document.getElementById('restaurant-address');
   address.innerHTML = restaurant.address;
-  address.setAttribute('tabindex', 0);
 
   // Creates the 'restaurant-img' HTML
   const image = document.getElementById('restaurant-img');
@@ -110,12 +108,10 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   image.srcset = `${image_url_1x} 320w, ${image_url_2x} 503w, ${image_url_3x} 900w`;
   image.sizes = `(max-width: 320px) 320px, (max-width: 503px) 503px, 900px`;
   image.alt = `A picture of ${restaurant.name}, a ${restaurant.cuisine_type} restaurant located in ${restaurant.neighborhood}.`;
-  image.setAttribute('tabindex', 0);
 
   // Creates the HTML for the 'restaurant-cuisine' section
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
-  cuisine.setAttribute('tabindex', 0);
 
   // fill operating hours
   if (restaurant.operating_hours) {
@@ -135,12 +131,10 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
 
     const day = document.createElement('td');
     day.innerHTML = key;
-    day.setAttribute('tabindex', 0);
     row.appendChild(day);
 
     const time = document.createElement('td');
     time.innerHTML = operatingHours[key];
-    time.setAttribute('tabindex', 0);
     row.appendChild(time);
 
     hours.appendChild(row);
@@ -154,13 +148,11 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
   const title = document.createElement('h2');
   title.innerHTML = 'Reviews';
-  title.setAttribute('tabindex', 0);
   container.appendChild(title);
 
   if (!reviews) {
     const noReviews = document.createElement('p');
     noReviews.innerHTML = 'No reviews yet!';
-    noReviews.setAttribute('tabindex', 0);
     container.appendChild(noReviews);
     return;
   }
@@ -179,26 +171,22 @@ createReviewHTML = (review) => {
   const name = document.createElement('p');
   name.innerHTML = review.name;
   name.className = 'review-name';
-  name.setAttribute('tabindex', 0);
   li.className = 'review-list';  
   li.appendChild(name);
 
   const date = document.createElement('span');
   date.innerHTML = review.date;
   date.className = 'review-date';
-  date.setAttribute('tabindex', 0);
   name.appendChild(date);
 
   const rating = document.createElement('span');
   rating.innerHTML = `Rating: ${review.rating}`;
   rating.className = 'review-rating';
-  rating.setAttribute('tabindex', 0);
   li.appendChild(rating);
 
   const comments = document.createElement('p');
   comments.innerHTML = review.comments;
   comments.className = 'review-comments';
-  comments.setAttribute('tabindex', 0);
   li.appendChild(comments);
 
   return li;
