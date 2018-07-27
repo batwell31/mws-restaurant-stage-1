@@ -184,17 +184,35 @@ createRestaurantHTML = (restaurant) => {
   li.append(name);
 
   const neighborhood = document.createElement('p');
+  neighborhood.className = 'restaurant-neighborhood';
   neighborhood.innerHTML = restaurant.neighborhood;
   li.append(neighborhood);
 
   const address = document.createElement('p');
+  address.className = 'restaurant-address';
   address.innerHTML = restaurant.address;
   li.append(address);
 
-  const more = document.createElement('a');
+  const more = document.createElement('button');
+  var label_attribute = document.createAttribute("aria-labelledby");
+  var restaurantName = restaurant.name;  
+  restaurantName = restaurantName.replace(/\s+/g, '');
+  label_attribute.value = restaurantName + "_label";
+  more.setAttributeNode(label_attribute);
   more.innerHTML = 'View Details';
-  more.href = DBHelper.urlForRestaurant(restaurant);
+
+  const aria_label = document.createElement('label');
+  aria_label.id = restaurant_name + "_label";
+  aria_label.className = "aria-label";
+  aria_label.innerHTML = "Link: Restaurant " + restaurant.name + " Details. Neighborhood: " + restaurant.neighborhood + " Address: " + restaurant.address;
+
+  more.onclick = function () {
+    const url = DBHelper.urlForRestaurant(restaurant);
+    window.location = url;
+  }
+
   li.append(more)
+  li.append(aria_label)
 
   return li
 }
