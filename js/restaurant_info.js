@@ -236,7 +236,7 @@ createReviewHTML = (review) => {
   aria_review_label.className = "aria-label";
   aria_review_label.innerHTML = "Rating " + review.rating + " stars. Date " + review.date + ". Reviewed By " + review.name + ". Comments: " + review.comments;
   
-  li.appendChild(aria_label);
+  li.appendChild(aria_review_label);
   
   return li;
 }
