@@ -1,8 +1,8 @@
 let restaurants,
   neighborhoods,
   cuisines
-var newMap
-var markers = []
+let newMap
+let markers = []
 
 /**
  * Fetch neighborhoods and cuisines as soon as the page is loaded.
@@ -161,8 +161,8 @@ createRestaurantHTML = (restaurant) => {
   // Creates the 'restaurant-img' HTML
   const image = document.createElement('img');
   image.className = 'restaurant-img';
-  var image_url = DBHelper.imageUrlForRestaurant(restaurant);
-  var image_length = image_url.length;
+  let image_url = DBHelper.imageUrlForRestaurant(restaurant);
+  const image_length = image_url.length;
   
   // This takes off '.jpg' from the img's URL
   image_url = image_url.substring(0, image_length - 4);
@@ -199,8 +199,8 @@ createRestaurantHTML = (restaurant) => {
 
   // Creates the 'Button' Section
   const more = document.createElement('button');
-  var label_attribute = document.createAttribute("aria-labelledby");
-  var restaurantName = restaurant.name;  
+  const label_attribute = document.createAttribute("aria-labelledby");
+  let restaurantName = restaurant.name;  
   restaurantName = restaurantName.replace(/\s+/g, '');
   label_attribute.value = restaurantName + "_label";
   more.setAttributeNode(label_attribute);

@@ -1,5 +1,5 @@
 let restaurant;
-var newMap;
+let newMap;
 
 /**
  * Initialize map as soon as the page is loaded.
@@ -94,8 +94,8 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   // Creates the 'restaurant-img' HTML
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img';
-  var image_url = DBHelper.imageUrlForRestaurant(restaurant);
-  var image_length = image_url.length; 
+  let image_url = DBHelper.imageUrlForRestaurant(restaurant);
+  const image_length = image_url.length; 
   
   // This takes off '.jpg' from the img's URL
   image_url = image_url.substring(0, image_length - 4);  
