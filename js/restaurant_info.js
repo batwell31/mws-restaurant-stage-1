@@ -4,7 +4,7 @@ let newMap;
 /**
  * Initialize map as soon as the page is loaded.
  */
-document.addEventListener('DOMContentLoaded', (event) => {  
+document.addEventListener('DOMContentLoaded', (event) => {
   initMap();
 });
 
@@ -15,7 +15,7 @@ initMap = () => {
   fetchRestaurantFromURL((error, restaurant) => {
     if (error) { // Got an error!
       console.error(error);
-    } else {      
+    } else {
       self.newMap = L.map('map', {
         center: [restaurant.latlng.lat, restaurant.latlng.lng],
         zoom: 16,
@@ -27,14 +27,14 @@ initMap = () => {
         attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
           '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
           'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        id: 'mapbox.streets'    
+        id: 'mapbox.streets'
       }).addTo(newMap);
       fillBreadcrumb();
       DBHelper.mapMarkerForRestaurant(self.restaurant, self.newMap);
     }
   });
-}  
- 
+}
+
 /* window.initMap = () => {
   fetchRestaurantFromURL((error, restaurant) => {
     if (error) { // Got an error!
@@ -80,7 +80,7 @@ fetchRestaurantFromURL = (callback) => {
  * Create restaurant HTML and add it to the webpage
  */
 fillRestaurantHTML = (restaurant = self.restaurant) => {
-  
+
   // Creates the 'restaurant name' HTML
   const name = document.getElementById('restaurant-name');
   name.innerHTML = restaurant.name;
@@ -93,16 +93,16 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img';
   let image_url = DBHelper.imageUrlForRestaurant(restaurant);
-  const image_length = image_url.length; 
-  
+  const image_length = image_url.length;
+
   // This takes off '.jpg' from the img's URL
-  image_url = image_url.substring(0, image_length - 4);  
-  
+  image_url = image_url.substring(0, image_length - 4);
+
   // 3 variables for img's for 1x, 2x, and 3x displays
   const image_url_1x = image_url_base + "_320.jpg";
   const image_url_2x = image_url_base + "_503.jpg";
-  const image_url_3x = image_url_base + "_900.jpg";  
-  
+  const image_url_3x = image_url_base + "_900.jpg";
+
   // Sets the default img src to the smallest img variable
   image.src = image_url_1x;
   image.srcset = `${image_url_1x} 320w, ${image_url_2x} 503w, ${image_url_3x} 900w`;
@@ -113,7 +113,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
   const aria_cuisine_label = document.getElementById('cuisine_label');
-  aria_cuisine_label.innerHTML = "Cuisine: " + restaurant.cuisine_type; 
+  aria_cuisine_label.innerHTML = "Cuisine: " + restaurant.cuisine_type;
 
   // fill operating hours
   if (restaurant.operating_hours) {
@@ -136,7 +136,7 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
     label_tabindex.value = 0;
     // Set the attirubte to the row
     row.setAttributeNode(label_tabindex);
-    
+
     // Creates attribute for 'aria-labelledby'
     const label_attribute = document.createAttribute("aria-labelledby");
     label_attribute.value = key + "_label";
@@ -189,16 +189,16 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
  * Create review HTML and add it to the webpage.
  */
 createReviewHTML = (review) => {
-  
+
   // Set 'review_id' to the next random number generated
   const rng = Math.floor(Math.random() * (9999 - 1)) + 1;
   let review_id = rng;
-  
+
   const li = document.createElement('li');
   const name = document.createElement('p');
   name.innerHTML = review.name;
   name.className = 'review-name';
-  li.className = 'review-list';  
+  li.className = 'review-list';
   li.appendChild(name);
 
   const date = document.createElement('span');
@@ -233,14 +233,18 @@ createReviewHTML = (review) => {
   const aria_review_label = document.createElement('label');
   aria_review_label.id = review_id + "_label";
   aria_review_label.className = "aria-label";
-
+  aria_review_label.className = "aria-label";
+  aria_review_label.innerHTML = "Rating " + review.rating + " stars. Date " + review.date + ". Reviewed By " + review.name + ". Comments: " + review.comments;
+  
+  li.appendChild(aria_label);
+  
   return li;
 }
 
 /**
  * Add restaurant name to the breadcrumb navigation menu
  */
-fillBreadcrumb = (restaurant=self.restaurant) => {
+fillBreadcrumb = (restaurant = self.restaurant) => {
   const breadcrumb = document.getElementById('breadcrumb');
   const li = document.createElement('li');
   li.innerHTML = restaurant.name;
