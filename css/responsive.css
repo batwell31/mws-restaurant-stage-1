@@ -10,6 +10,12 @@
 	#breadcrumb {
 		width: calc(75% - 120px);
 	}
+	#restaurants-list li h1 {
+		font-size: 18pt;
+	}
+	#restaurants-list p {
+		font-size: 15pt;
+	}
 	#restaurant-address {
 		font-size: 18pt;
 	}
@@ -35,6 +41,12 @@
 	}
 	#breadcrumb {
 		width: calc(75% - 80px);
+	}
+		#restaurants-list li h1 {
+		font-size: 18pt;
+	}
+	#restaurants-list p {
+		font-size: 15pt;
 	}
 	#restaurant-address {
 		font-size: 18pt;
@@ -71,10 +83,19 @@
 	#breadcrumb {
 		width: calc(75% - 80px);
 	}
-    #restaurants-list li {
-	  max-width: 25%;
+	#restaurants-list li h1 {
+		font-size: 18pt;
 	}
-    
+	#restaurants-list p {
+		font-size: 15pt;
+	}
+    #restaurants-list li {
+	 	max-width: 28%;
+	}
+	#restaurants-list li button {
+		font-size: 14pt;
+		padding: 14px 30px 10px;
+	}
     .container, .inside {
         margin-left: auto;
 		margin-right: auto;
