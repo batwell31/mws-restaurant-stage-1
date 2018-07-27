@@ -1,59 +1,50 @@
 let staticCacheName = 'restaurantReviewsApp-v1'
+let arrayOfUrls = [
+    "../",
+    '/register.js',
+    '../index.html',
+    '../restaurant.html',
+    '../data/restaurants.json',
+    '../js/dbhelper.js',
+    '../js/main.js',
+    '../js/restaurant_info.js',
+    '../css/styles.css',
+    '../css/responsive.css',
+    '../img/*',
+    '//normalize-css.googlecode.com/svn/trunk/normalize.css',
+    'https://fonts.googleapis.com/css?family=Roboto:300,400,500'
+];
 
-self.addEventListener('install', function (event) {
-
+self.addEventListener("install", event => {
     event.waitUntil(
-        caches.open(staticCacheName).then(function(cache) {
-            return cache.addAll([
-                "../",
-                '/register.js',
-                '../index.html',
-                '../restaurant.html',
-                '../data/restaurants.json',
-                '../js/dbhelper.js',
-                '../js/main.js',
-                '../js/restaurant_info.js',
-                '../css/styles.css',
-                '../css/responsive.css',
-                '../img/*',
-                '//normalize-css.googlecode.com/svn/trunk/normalize.css',
-                'https://fonts.googleapis.com/css?family=Roboto:300,400,500'
-            ]);
-        })
+        caches
+            .open(staticCacheName)
+            .then(cache => cache.addAll(arrayOfUrls))
+            .then(self.skipWaiting())
     );
 });
 
-
-
-self.addEventListener('activate', function (event) {
+self.addEventListener("activate", event => {
     event.waitUntil(
-        caches.keys().then(function (cacheNames) {
-            return Promise.all(
-                cacheNames.filter(function (cacheName) {
-                    return cacheName.startsWith('restaurantReviewsApp-') &&
-                        cacheName != staticCacheName;
-                }).map(function (cacheName) {
-                    return caches.delete(cacheName);
-                })
-            );
-        })
-    );
-});
-
-self.addEventListener('fetch', function (event) {
-    event.respondwith(
-        caches.match(event.request).then(function(response) {
-            if (response !== null) {
-                return response;
-            }else {
-                return fetch(event.request).then(function(response) {
-                    let responseClone = response.clone();
-                    caches.open(staticCacheName).then(function(cache) {
-                        cache.put(event.request, responseClone);
-                    })
-                    return response;
-                });
+        caches.keys().then(cacheNames => Promise.all(cacheNames.map(cache => {
+            if (cache !== staticCacheName) {
+                console.log("[ServiceWorker] removing cached files from ", cache);
+                return caches.delete(cache);
             }
-        })
+        })))
     )
+})
+
+self.addEventListener("fetch", event => {
+    if (event.request.url.startsWith(self.location.origin)) {
+        event.respondWith(
+            caches.match(event.request).then(response => {
+                if (response) {
+                    // console.log("[ServiceWorker] Found in cache ", event.request.url);
+                    return response;
+                }
+                return fetch(event.request);
+            })
+        );
+    }
 });
