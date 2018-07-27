@@ -247,8 +247,13 @@ createReviewHTML = (review) => {
 fillBreadcrumb = (restaurant = self.restaurant) => {
   const breadcrumb = document.getElementById('breadcrumb');
   const li = document.createElement('li');
-  li.innerHTML = restaurant.name;
-  li.setAttribute('aria-current', 'page');
+  // Creates 'hyper-link' element
+  const a = document.createElement("a");
+  a.href = window.location;
+  a.innerHTML = restaurant.name;
+  a.setAttribute("aria-current", "page");
+  // Appends the 'hyper-link' to the 'list' element
+  li.appendChild(a);
   breadcrumb.appendChild(li);
 }
 
