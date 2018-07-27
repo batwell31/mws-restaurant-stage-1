@@ -174,6 +174,7 @@ createRestaurantHTML = (restaurant) => {
   
   // Sets the default img src to the smallest img variable
   image.src = image_url_1x;
+  // This will allow the img's to be responsive, adjusting them to different vw sizes
   image.srcset = `${image_url_1x} 320w, ${image_url_2x} 503w, ${image_url_3x} 900w`;
   image.sizes = `(max-width: 320px) 320px, (max-width: 503px) 503px, 900px`;
   image.alt = `A picture of ${restaurant.name}, a ${restaurant.cuisine_type} restaurant located in ${restaurant.neighborhood}.`;
