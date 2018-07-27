@@ -1,6 +1,10 @@
 @charset "utf-8";
 /* CSS Document */
 
+/*
+ CSS is already optimized for cell phone based devices as a standard in 'styles.css'
+ */
+
 /* ====================== Tablet Media ====================== */
 @media screen and (min-width: 503px) and (max-width: 999px) {
 	.inside #map-container {
