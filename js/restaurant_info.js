@@ -189,6 +189,11 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
  * Create review HTML and add it to the webpage.
  */
 createReviewHTML = (review) => {
+  
+  // Set 'review_id' to the next random number generated
+  const rng = Math.floor(Math.random() * (9999 - 1)) + 1;
+  let review_id = rng;
+  
   const li = document.createElement('li');
   const name = document.createElement('p');
   name.innerHTML = review.name;
@@ -199,6 +204,7 @@ createReviewHTML = (review) => {
   const date = document.createElement('span');
   date.innerHTML = review.date;
   date.className = 'review-date';
+  // Appending the 'date' as a span to the 'name' element
   name.appendChild(date);
 
   const rating = document.createElement('span');
@@ -210,6 +216,23 @@ createReviewHTML = (review) => {
   comments.innerHTML = review.comments;
   comments.className = 'review-comments';
   li.appendChild(comments);
+
+  // Creates attribute for the 'tabindex'
+  const label_tabindex = document.createAttribute("tabindex");
+  label_tabindex.value = 0;
+  // Sets the attirubte to the row
+  li.setAttributeNode(label_tabindex);
+
+  // Creates attribute for the 'aria-labelledby'
+  const label_attribute = document.createAttribute("aria-labelledby");
+  label_attribute.value = review_id + "_label";
+  // Sets the attirubte to the row
+  li.setAttributeNode(label_attribute);
+
+  // Creates 'label' element for a review
+  const aria_review_label = document.createElement('label');
+  aria_review_label.id = review_id + "_label";
+  aria_review_label.className = "aria-label";
 
   return li;
 }
