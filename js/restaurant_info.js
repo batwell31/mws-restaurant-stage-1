@@ -95,15 +95,15 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img';
   var image_url = DBHelper.imageUrlForRestaurant(restaurant);
-  var image_length = image_url.length;
- 
+  var image_length = image_url.length; 
+  
   // This takes off '.jpg' from the img's URL
-  image_url = image_url.substring(0, image_length - 4);
+  image_url = image_url.substring(0, image_length - 4);  
   
   // 3 variables for img's for 1x, 2x, and 3x displays
   const image_url_1x = image_url_base + "_320.jpg";
   const image_url_2x = image_url_base + "_503.jpg";
-  const image_url_3x = image_url_base + "_900.jpg";
+  const image_url_3x = image_url_base + "_900.jpg";  
   
   // Sets the default img src to the smallest img variable
   image.src = image_url_1x;

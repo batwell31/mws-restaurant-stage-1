@@ -158,14 +158,21 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
 createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
 
+  // Creates the 'restaurant-img' HTML
   const image = document.createElement('img');
   image.className = 'restaurant-img';
-  var image_url_base = DBHelper.imageUrlForRestaurant(restaurant);
-  var image_length = image_url_base.length;
-  image_url_base = image_url_base.substring(0, image_length - 4);
-  const image_url_1x = image_url_base + "_320.jpg";
-  const image_url_2x = image_url_base + "_503.jpg";
-  const image_url_3x = image_url_base + "_900.jpg";
+  var image_url = DBHelper.imageUrlForRestaurant(restaurant);
+  var image_length = image_url.length;
+  
+  // This takes off '.jpg' from the img's URL
+  image_url = image_url.substring(0, image_length - 4);
+  
+  // 3 variables for img's for 1x, 2x, and 3x displays
+  const image_url_1x = image_url + "_320.jpg";
+  const image_url_2x = image_url + "_503.jpg";
+  const image_url_3x = image_url + "_900.jpg";
+  
+  // Sets the default img src to the smallest img variable
   image.src = image_url_1x;
   image.srcset = `${image_url_1x} 320w, ${image_url_2x} 503w, ${image_url_3x} 900w`;
   image.sizes = `(max-width: 320px) 320px, (max-width: 503px) 503px, 900px`;
